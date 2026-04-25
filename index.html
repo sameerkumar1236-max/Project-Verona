@@ -1,320 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Crazy Amishaaa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Crazy Amishaaa</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(236, 72, 153, 0.28), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.28), transparent 35%),
-        linear-gradient(135deg, #020617, #111827);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      overflow-x: hidden;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    .card {
-      width: 100%;
-      max-width: 560px;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 28px;
-      padding: 26px;
-      text-align: center;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.42);
-      backdrop-filter: blur(14px);
-      animation: enter 0.45s ease;
-    }
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
 
-    @keyframes enter {
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-    .progress {
-      display: flex;
-      justify-content: center;
-      gap: 7px;
-      margin-bottom: 18px;
-    }
+.progress {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 15px;
+}
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-    }
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+}
 
-    .dot.active {
-      background: white;
-    }
+.dot.active {
+  background: #111;
+}
 
-    .step {
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
 
-    h1 {
-      font-size: 28px;
-      line-height: 1.22;
-      margin: 0 0 12px;
-      letter-spacing: -0.6px;
-    }
+p {
+  color: #333;
+  margin-bottom: 18px;
+}
 
-    p {
-      font-size: 15px;
-      color: #cbd5e1;
-      line-height: 1.55;
-      margin: 0 0 20px;
-    }
+.media {
+  width: 100%;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #eee;
+}
 
-    .media {
-      width: 100%;
-      height: 300px;
-      border-radius: 22px;
-      overflow: hidden;
-      margin: 0 auto 22px;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.media img, .media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .media img,
-    .media video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      background: #020617;
-    }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  min-height: 60px;
+}
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      min-height: 58px;
-      position: relative;
-    }
+button {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 14px 24px;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-      will-change: transform;
-    }
+.yes {
+  background: #22c55e;
+  color: white;
+}
 
-    .yes {
-      background: #22c55e;
-      color: white;
-    }
+.no {
+  background: #ef4444;
+  color: white;
+  position: relative;
+}
 
-    .no {
-      background: #ef4444;
-      color: white;
-      position: relative;
-    }
+.final {
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    button:hover {
-      transform: translateY(-2px);
-    }
+.float {
+  position: fixed;
+  bottom: -10px;
+  font-size: 22px;
+  animation: rise 2s linear forwards;
+}
 
-    .final {
-      font-size: 30px;
-      font-weight: 900;
-      line-height: 1.28;
-    }
-
-    .sub {
-      margin-top: 16px;
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .float {
-      position: fixed;
-      bottom: -20px;
-      font-size: 22px;
-      pointer-events: none;
-      animation: rise 1.8s ease-out forwards;
-    }
-
-    @keyframes rise {
-      to {
-        transform: translateY(-130vh) scale(1.6);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .card {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      .media {
-        height: 260px;
-      }
-
-      .buttons {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-      }
-    }
-  </style>
+@keyframes rise {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card" id="card"></div>
+<div class="card" id="card"></div>
 
-  <script>
-    const questions = [
-      {
-        step: "Question 1 of 4",
-        title: "First, important audit.",
-        text: "Did we or did we not have way too much fun in Mumbai?",
-        media: '<img src="mumbai1.jpeg" alt="Mumbai memory">',
-        yes: "Obviously 😌",
-        no: "No, I lie sometimes"
-      },
-      {
-        step: "Question 2 of 4",
-        title: "Second, evidence review.",
-        text: "Was this mirror photo unnecessarily cute?",
-        media: '<img src="mumbai2.jpeg" alt="Mumbai mirror photo">',
-        yes: "Yes, obviously",
-        no: "No, I hate joy"
-      },
-      {
-        step: "Question 3 of 4",
-        title: "Third, memory check.",
-        text: "Did Mumbai become 10x better because we were roaming like idiots?",
-        media: '<img src="mumbai3.jpeg" alt="Mumbai night memory">',
-        yes: "Facts only",
-        no: "Fake news"
-      },
-      {
-        step: "Final Question",
-        title: "So, Crazy Amishaaa...",
-        text: "Round 2: coffee, chaos, and one more Mumbai plan. Confirm?",
-        media: '<video autoplay muted loop playsinline><source src="mumbai-video.mp4" type="video/mp4"></video>',
-        yes: "Confirm 😌☕",
-        no: "No 😏"
-      }
-    ];
+<audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
 
-    let current = 0;
-    let noMoveLock = false;
+<script>
+const questions = [
+{
+  title: "Okay listen carefully...",
+  text: "This is a serious audit of Mumbai chaos.",
+  media: '<img src="mumbai1.jpeg">',
+  yes: "Continue",
+  no: "Nope"
+},
+{
+  title: "First memory check.",
+  text: "Did we or did we not have stupid levels of fun?",
+  media: '<img src="mumbai1.jpeg">',
+  yes: "Obviously",
+  no: "No"
+},
+{
+  title: "Second, evidence review.",
+  text: "That random girl in the toto said 'I’ll click great photos'... and gave us THIS 😭",
+  media: '<img src="mumbai2.jpeg">',
+  yes: "Still funny 😂",
+  no: "Trauma"
+},
+{
+  title: "Final decision.",
+  text: "So... we doing toto part 2 or what?",
+  media: '<video autoplay muted loop><source src="mumbai-video.mp4"></video>',
+  yes: "Let’s go 😏",
+  no: "No chance"
+}
+];
 
-    function renderQuestion() {
-      const q = questions[current];
+let current = 0;
+let noTexts = ["No", "Still no?", "You sure?", "Liar.", "Okay wow."];
+let noIndex = 0;
 
-      document.getElementById("card").innerHTML = `
-        <div class="progress">
-          ${questions.map((_, i) => `<div class="dot ${i === current ? "active" : ""}"></div>`).join("")}
-        </div>
+function playSound() {
+  document.getElementById("clickSound").play();
+}
 
-        <div class="step">${q.step}</div>
-        <h1>${q.title}</h1>
-        <p>${q.text}</p>
+function render() {
+  const q = questions[current];
 
-        <div class="media">${q.media}</div>
+  const dots = questions.map((_, i) =>
+    `<div class="dot ${i===current?"active":""}"></div>`
+  ).join("");
 
-        <div class="buttons">
-          <button class="yes" onclick="yesClicked()">${q.yes}</button>
-          <button class="no" id="noBtn" onmouseenter="moveNo()" onclick="moveNo()">${q.no}</button>
-        </div>
-      `;
-    }
+  document.getElementById("card").classList.add("fade");
 
-    function yesClicked() {
-      if (current < questions.length - 1) {
-        current++;
-        renderQuestion();
-      } else {
-        finalScreen();
-      }
-    }
+  setTimeout(() => {
+    document.getElementById("card").innerHTML = `
+      <div class="progress">${dots}</div>
+      <h1>${q.title}</h1>
+      <p>${q.text}</p>
+      <div class="media">${q.media}</div>
+      <div class="buttons">
+        <button class="yes" onclick="yesClick()">${q.yes}</button>
+        <button class="no" id="noBtn" 
+          onmouseenter="moveNo()" 
+          onclick="moveNo()">${noTexts[noIndex]}</button>
+      </div>
+    `;
+    document.getElementById("card").classList.remove("fade");
+  }, 250);
+}
 
-    function moveNo() {
-      if (noMoveLock) return;
-      noMoveLock = true;
+function yesClick() {
+  playSound();
+  if (current < questions.length - 1) {
+    current++;
+    render();
+  } else {
+    endScreen();
+  }
+}
 
-      const btn = document.getElementById("noBtn");
-      const x = Math.floor(Math.random() * 100) - 50;
-      const y = Math.floor(Math.random() * 60) - 30;
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  const x = Math.random()*200 - 100;
+  const y = Math.random()*100 - 50;
 
-      btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  btn.style.transform = `translate(${x}px, ${y}px)`;
 
-      setTimeout(() => {
-        noMoveLock = false;
-      }, 260);
-    }
+  noIndex = (noIndex + 1) % noTexts.length;
+  btn.innerText = noTexts[noIndex];
+}
 
-    function finalScreen() {
-      document.body.innerHTML = `
-        <div class="card">
-          <div class="final">
-            Correct answer.<br>
-            Mumbai Round 2 is officially pending approval from Crazy Amishaaa 😌☕
-          </div>
-          <div class="sub">
-            I will pick the place.<br>
-            You just bring the same chaotic energy.
-          </div>
-        </div>
-      `;
+function endScreen() {
+  document.body.innerHTML = `
+    <div class="card">
+      <div class="final">
+        Good. Correct answer.<br><br>
+        Mumbai Round 2 approved.<br>
+        Same chaos, same idiots.
+      </div>
+    </div>
+  `;
 
-      for (let i = 0; i < 28; i++) {
-        setTimeout(createFloat, i * 70);
-      }
-    }
+  for(let i=0;i<25;i++){
+    setTimeout(()=>{
+      let f = document.createElement("div");
+      f.className="float";
+      f.innerText=["✨","😂","☕","🛺"][Math.floor(Math.random()*4)];
+      f.style.left=Math.random()*100+"vw";
+      document.body.appendChild(f);
+      setTimeout(()=>f.remove(),2000);
+    },i*80);
+  }
+}
 
-    function createFloat() {
-      const item = document.createElement("div");
-      item.className = "float";
-      item.innerText = ["☕", "✨", "😌", "🫶"][Math.floor(Math.random() * 4)];
-      item.style.left = Math.random() * 100 + "vw";
-      document.body.appendChild(item);
-
-      setTimeout(() => item.remove(), 1800);
-    }
-
-    renderQuestion();
-  </script>
+render();
+</script>
 
 </body>
 </html>
