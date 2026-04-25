@@ -27,8 +27,8 @@ body {
 .card {
   width: 100%;
   max-width: 570px;
-  background: rgba(255, 255, 255, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 30px;
   padding: 26px;
   text-align: center;
@@ -46,11 +46,11 @@ body {
   font-size: 30px;
   font-weight: 900;
   line-height: 1.25;
-  letter-spacing: -0.7px;
   min-height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
+  letter-spacing: -0.5px;
 }
 
 .tap {
@@ -171,6 +171,12 @@ button:hover {
   line-height: 1.6;
 }
 
+.music-note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #6b4b77;
+}
+
 .float {
   position: fixed;
   bottom: -20px;
@@ -187,29 +193,12 @@ button:hover {
 }
 
 @media (max-width: 520px) {
-  .card {
-    padding: 20px;
-  }
-
-  .intro-text {
-    font-size: 25px;
-  }
-
-  h1 {
-    font-size: 23px;
-  }
-
-  .media {
-    height: 290px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  button {
-    width: 100%;
-  }
+  .card { padding: 20px; }
+  .intro-text { font-size: 25px; }
+  h1 { font-size: 23px; }
+  .media { height: 290px; }
+  .buttons { flex-direction: column; }
+  button { width: 100%; }
 }
 </style>
 </head>
@@ -217,26 +206,27 @@ button:hover {
 <body>
 
 <div class="card" id="card">
-  <div class="intro-text" id="introText">Loading Mumbai evidence...</div>
+  <div class="intro-text" id="introText">Loading Mumbai story...</div>
   <div class="tap">Tap anywhere to start the chaos 🎬</div>
+  <div class="music-note">Music starts after tap 🔊</div>
 </div>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://assets.mixkit.co/music/preview/mixkit-summer-fun-13.mp3" type="audio/mpeg">
+</audio>
 
 <audio id="clickSound" preload="auto">
   <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
 </audio>
 
-<audio id="introSound" preload="auto" loop>
-  <source src="https://assets.mixkit.co/active_storage/sfx/2469/2469-preview.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 const introLines = [
   "Previously in Mumbai...",
-  "Two idiots entered Toto’s.",
-  "A random girl promised great photos.",
-  "The photos arrived.",
-  "Expectations died.",
-  "But the chaos? 10/10.",
+  "Two idiots entered Toto.",
+  "A girl promised great photos.",
+  "The photos came...",
+  "Expectations died instantly 😂",
+  "But the vibe? 10/10.",
   "Now presenting: The Official Round 2 Audit."
 ];
 
@@ -244,8 +234,8 @@ const questions = [
   {
     step: "Scene 1 of 4",
     title: "The Toto Evidence Review.",
-    text: "Remember when that girl took our photos and we thought they’d be iconic... but they came out like a government CCTV screenshot? 😭",
-    media: 'media:'<img src="mumbai1.jpeg" alt="Toto photo evidence">',
+    text: "Remember when that girl took our photos and we thought they’d be iconic... but they came out like government CCTV footage? 😭",
+    media: '<img src="toto.jpeg" alt="Toto photo evidence">',
     yes: "Still iconic 😂",
     no: "Delete evidence"
   },
@@ -278,6 +268,7 @@ const questions = [
 let current = 0;
 let noIndex = 0;
 let noMoveLock = false;
+let started = false;
 
 const noTexts = [
   "No",
@@ -288,19 +279,30 @@ const noTexts = [
   "Try again"
 ];
 
-document.body.addEventListener("click", startIntro, { once: true });
+document.body.addEventListener("click", startExperience, { once: true });
+
+function startExperience() {
+  if (started) return;
+  started = true;
+
+  startMusic();
+  startIntro();
+}
+
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.35;
+  music.play().catch(() => {});
+}
 
 function playClick() {
   const click = document.getElementById("clickSound");
+  click.volume = 0.45;
   click.currentTime = 0;
   click.play().catch(() => {});
 }
 
 function startIntro() {
-  const music = document.getElementById("introSound");
-  music.volume = 0.25;
-  music.play().catch(() => {});
-
   let i = 0;
   const introText = document.getElementById("introText");
 
@@ -311,10 +313,7 @@ function startIntro() {
 
     if (i >= introLines.length) {
       clearInterval(timer);
-      setTimeout(() => {
-        music.pause();
-        renderQuestion();
-      }, 700);
+      setTimeout(renderQuestion, 650);
       return;
     }
 
