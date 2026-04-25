@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Amisha</title>
+  <title>For Crazy Amishaaa</title>
 
   <style>
     * {
@@ -28,11 +28,11 @@
 
     .card {
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
       background: rgba(255, 255, 255, 0.09);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 28px;
-      padding: 24px;
+      padding: 26px;
       text-align: center;
       box-shadow: 0 25px 80px rgba(0, 0, 0, 0.42);
       backdrop-filter: blur(14px);
@@ -50,10 +50,29 @@
       }
     }
 
+    .progress {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .dot.active {
+      background: white;
+    }
+
     .step {
       font-size: 13px;
       color: #cbd5e1;
       margin-bottom: 12px;
+      font-weight: 700;
     }
 
     h1 {
@@ -72,25 +91,29 @@
 
     .media {
       width: 100%;
-      height: 280px;
+      height: 300px;
       border-radius: 22px;
       overflow: hidden;
-      margin-bottom: 20px;
+      margin: 0 auto 22px;
       background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .media img,
     .media video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #020617;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       min-height: 58px;
       position: relative;
     }
@@ -98,7 +121,7 @@
     button {
       border: none;
       border-radius: 999px;
-      padding: 14px 22px;
+      padding: 14px 24px;
       font-size: 15px;
       font-weight: 800;
       cursor: pointer;
@@ -119,24 +142,6 @@
 
     button:hover {
       transform: translateY(-2px);
-    }
-
-    .progress {
-      display: flex;
-      justify-content: center;
-      gap: 7px;
-      margin-bottom: 18px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-    }
-
-    .dot.active {
-      background: white;
     }
 
     .final {
@@ -177,7 +182,7 @@
       }
 
       .media {
-        height: 240px;
+        height: 260px;
       }
 
       .buttons {
@@ -223,7 +228,7 @@
       },
       {
         step: "Final Question",
-        title: "So, Madam Amisha...",
+        title: "So, Crazy Amishaaa...",
         text: "Round 2: coffee, chaos, and one more Mumbai plan. Confirm?",
         media: '<video autoplay muted loop playsinline><source src="mumbai-video.mp4" type="video/mp4"></video>',
         yes: "Confirm 😌☕",
@@ -269,14 +274,14 @@
       noMoveLock = true;
 
       const btn = document.getElementById("noBtn");
-      const x = Math.floor(Math.random() * 120) - 60;
-      const y = Math.floor(Math.random() * 70) - 35;
+      const x = Math.floor(Math.random() * 100) - 50;
+      const y = Math.floor(Math.random() * 60) - 30;
 
       btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
       setTimeout(() => {
         noMoveLock = false;
-      }, 250);
+      }, 260);
     }
 
     function finalScreen() {
@@ -284,7 +289,7 @@
         <div class="card">
           <div class="final">
             Correct answer.<br>
-            Mumbai Round 2 is officially pending approval from Madam Amisha 😌☕
+            Mumbai Round 2 is officially pending approval from Crazy Amishaaa 😌☕
           </div>
           <div class="sub">
             I will pick the place.<br>
