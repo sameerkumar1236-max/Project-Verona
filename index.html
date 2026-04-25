@@ -1,204 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Crazy Amishaaa</title>
 
 <style>
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255, 183, 197, 0.55), transparent 32%),
-    radial-gradient(circle at 80% 80%, rgba(173, 216, 230, 0.55), transparent 34%),
-    linear-gradient(135deg, #f6d5f7, #c8e7ff);
-  color: #24172f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  overflow-x: hidden;
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd6e8,#d7ecff);
+  color:#24172f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
 }
 
-.card {
-  width: 100%;
-  max-width: 570px;
-  background: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 30px;
-  padding: 26px;
-  text-align: center;
-  box-shadow: 0 24px 70px rgba(93, 61, 118, 0.25);
-  backdrop-filter: blur(18px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+.card{
+  width:100%;
+  max-width:560px;
+  background:rgba(255,255,255,.48);
+  border-radius:30px;
+  padding:26px;
+  text-align:center;
+  box-shadow:0 24px 70px rgba(93,61,118,.25);
+  backdrop-filter:blur(18px);
 }
 
-.fade {
-  opacity: 0;
-  transform: translateY(18px) scale(0.98);
+h1{font-size:27px;margin:0 0 10px}
+p{color:#4b3656;line-height:1.5}
+
+.media{
+  width:100%;
+  height:330px;
+  border-radius:24px;
+  overflow:hidden;
+  margin:20px 0;
+  background:#eadcff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.intro-text {
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1.25;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: -0.5px;
+.media img,.media video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
-.tap {
-  margin-top: 18px;
-  font-size: 14px;
-  color: #6b4b77;
+button{
+  border:none;
+  border-radius:999px;
+  padding:14px 24px;
+  font-weight:900;
+  cursor:pointer;
+  margin:8px;
 }
 
-.progress {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-  margin-bottom: 16px;
+.yes{
+  background:linear-gradient(135deg,#8b5cf6,#ec4899);
+  color:white;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(36, 23, 47, 0.22);
+.no{
+  background:linear-gradient(135deg,#f59e0b,#fb7185);
+  color:white;
+  position:relative;
 }
 
-.dot.active {
-  background: #7c3aed;
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(0,0,0,.2);
+  margin:4px;
 }
+.dot.active{background:#7c3aed}
 
-.step {
-  font-size: 13px;
-  color: #6b4b77;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 27px;
-  line-height: 1.2;
-  margin: 0 0 10px;
-  letter-spacing: -0.5px;
-}
-
-p {
-  color: #4b3656;
-  font-size: 15px;
-  line-height: 1.55;
-  margin: 0 0 18px;
-}
-
-.media {
-  width: 100%;
-  height: 330px;
-  border-radius: 24px;
-  overflow: hidden;
-  margin: 0 auto 22px;
-  background: rgba(255,255,255,0.35);
-  border: 1px solid rgba(255,255,255,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.media img,
-.media video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  background: linear-gradient(135deg, #f8d7ff, #d9efff);
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  min-height: 62px;
-  position: relative;
-}
-
-button {
-  border: none;
-  border-radius: 999px;
-  padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  will-change: transform;
-}
-
-.yes {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  color: white;
-  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.28);
-}
-
-.no {
-  background: linear-gradient(135deg, #f59e0b, #fb7185);
-  color: white;
-  position: relative;
-  box-shadow: 0 12px 28px rgba(251, 113, 133, 0.24);
-}
-
-button:hover {
-  transform: translateY(-2px);
-}
-
-.final {
-  font-size: 30px;
-  font-weight: 950;
-  line-height: 1.28;
-  letter-spacing: -0.5px;
-}
-
-.sub {
-  margin-top: 16px;
-  color: #4b3656;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.music-note {
-  margin-top: 14px;
-  font-size: 12px;
-  color: #6b4b77;
-}
-
-.float {
-  position: fixed;
-  bottom: -20px;
-  font-size: 22px;
-  pointer-events: none;
-  animation: rise 2s ease-out forwards;
-}
-
-@keyframes rise {
-  to {
-    transform: translateY(-125vh) scale(1.6);
-    opacity: 0;
-  }
-}
-
-@media (max-width: 520px) {
-  .card { padding: 20px; }
-  .intro-text { font-size: 25px; }
-  h1 { font-size: 23px; }
-  .media { height: 290px; }
-  .buttons { flex-direction: column; }
-  button { width: 100%; }
+.final{
+  font-size:30px;
+  font-weight:900;
+  line-height:1.3;
 }
 </style>
 </head>
@@ -206,211 +93,95 @@ button:hover {
 <body>
 
 <div class="card" id="card">
-  <div class="intro-text" id="introText">Loading Mumbai story...</div>
-  <div class="tap">Tap anywhere to start the chaos 🎬</div>
-  <div class="music-note">Music starts after tap 🔊</div>
+  <h1>Previously in Mumbai...</h1>
+  <p>Tap once to start the chaos 🎬</p>
+  <button class="yes" onclick="start()">Start</button>
 </div>
 
-<audio id="bgMusic" loop preload="auto">
-  <source src="https://assets.mixkit.co/music/preview/mixkit-summer-fun-13.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="clickSound" preload="auto">
-  <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="music.mp3" loop></audio>
 
 <script>
-const introLines = [
-  "Previously in Mumbai...",
-  "Two idiots entered Toto.",
-  "A girl promised great photos.",
-  "The photos came...",
-  "Expectations died instantly 😂",
-  "But the vibe? 10/10.",
-  "Now presenting: The Official Round 2 Audit."
+const questions=[
+{
+title:"The Toto Evidence Review.",
+text:"Remember when that girl took our photos and we thought they’d be iconic... but they came out like government CCTV footage? 😭",
+media:'<img src="toto.jpeg">',
+yes:"Still iconic 😂",
+no:"Delete evidence"
+},
+{
+title:"Mirror Check.",
+text:"Okay but this one was accidentally cute. I will not be taking arguments.",
+media:'<img src="mumbai2.jpeg">',
+yes:"Fine, cute 😌",
+no:"No comment"
+},
+{
+title:"Mumbai Chaos Report.",
+text:"Was Mumbai better because we were roaming around like absolute idiots?",
+media:'<img src="mumbai3.jpeg">',
+yes:"100% facts",
+no:"Fake news"
+},
+{
+title:"Final Scene.",
+text:"Let’s bang Toto again — round 2, same chaos, better photos this time?",
+media:'<video autoplay muted loop playsinline><source src="mumbai-video.mp4" type="video/mp4"></video>',
+yes:"Let’s gooo 😌",
+no:"No chance"
+}
 ];
 
-const questions = [
-  {
-    step: "Scene 1 of 4",
-    title: "The Toto Evidence Review.",
-    text: "Remember when that girl took our photos and we thought they’d be iconic... but they came out like government CCTV footage? 😭",
-    media: '<img src="toto.jpeg" alt="Toto photo evidence">',
-    yes: "Still iconic 😂",
-    no: "Delete evidence"
-  },
-  {
-    step: "Scene 2 of 4",
-    title: "Mirror Check.",
-    text: "Okay but this one was accidentally cute. I will not be taking arguments.",
-    media: '<img src="mumbai2.jpeg" alt="Mirror memory">',
-    yes: "Fine, cute 😌",
-    no: "No comment"
-  },
-  {
-    step: "Scene 3 of 4",
-    title: "Mumbai Chaos Report.",
-    text: "Was Mumbai better because we were roaming around like absolute idiots?",
-    media: '<img src="mumbai3.jpeg" alt="Mumbai memory">',
-    yes: "100% facts",
-    no: "Fake news"
-  },
-  {
-    step: "Final Scene",
-    title: "So, Crazy Amishaaa...",
-    text: "Let’s bang Toto again — round 2, same chaos, better photos this time?",
-    media: '<video autoplay muted loop playsinline><source src="mumbai-video.mp4" type="video/mp4"></video>',
-    yes: "Let’s gooo 😌",
-    no: "No chance"
-  }
-];
+let current=0;
+let noTexts=["No","Still no?","You sure?","Wrong answer","Lying now?","Try again"];
+let noIndex=0;
 
-let current = 0;
-let noIndex = 0;
-let noMoveLock = false;
-let started = false;
-
-const noTexts = [
-  "No",
-  "Still no?",
-  "You sure?",
-  "Wrong answer",
-  "Lying now?",
-  "Try again"
-];
-
-document.body.addEventListener("click", startExperience, { once: true });
-
-function startExperience() {
-  if (started) return;
-  started = true;
-
-  startMusic();
-  startIntro();
+function start(){
+  const music=document.getElementById("music");
+  music.volume=.45;
+  music.play().catch(()=>{});
+  render();
 }
 
-function startMusic() {
-  const music = document.getElementById("bgMusic");
-  music.volume = 0.35;
-  music.play().catch(() => {});
-}
+function render(){
+  const q=questions[current];
+  const dots=questions.map((_,i)=>`<span class="dot ${i===current?"active":""}"></span>`).join("");
 
-function playClick() {
-  const click = document.getElementById("clickSound");
-  click.volume = 0.45;
-  click.currentTime = 0;
-  click.play().catch(() => {});
-}
-
-function startIntro() {
-  let i = 0;
-  const introText = document.getElementById("introText");
-
-  introText.innerText = introLines[i];
-
-  const timer = setInterval(() => {
-    i++;
-
-    if (i >= introLines.length) {
-      clearInterval(timer);
-      setTimeout(renderQuestion, 650);
-      return;
-    }
-
-    introText.style.opacity = 0;
-    introText.style.transform = "translateY(10px)";
-
-    setTimeout(() => {
-      introText.innerText = introLines[i];
-      introText.style.opacity = 1;
-      introText.style.transform = "translateY(0)";
-    }, 220);
-
-  }, 1050);
-}
-
-function renderQuestion() {
-  const q = questions[current];
-  const card = document.getElementById("card");
-
-  card.classList.add("fade");
-
-  const dots = questions.map((_, i) =>
-    `<div class="dot ${i === current ? "active" : ""}"></div>`
-  ).join("");
-
-  setTimeout(() => {
-    card.innerHTML = `
-      <div class="progress">${dots}</div>
-      <div class="step">${q.step}</div>
-      <h1>${q.title}</h1>
-      <p>${q.text}</p>
-      <div class="media">${q.media}</div>
-      <div class="buttons">
-        <button class="yes" onclick="yesClick()">${q.yes}</button>
-        <button class="no" id="noBtn" onmouseenter="moveNo()" onclick="moveNo()">${noTexts[0]}</button>
-      </div>
-    `;
-    noIndex = 0;
-    card.classList.remove("fade");
-  }, 280);
-}
-
-function yesClick() {
-  playClick();
-
-  if (current < questions.length - 1) {
-    current++;
-    renderQuestion();
-  } else {
-    finalScreen();
-  }
-}
-
-function moveNo() {
-  if (noMoveLock) return;
-  noMoveLock = true;
-
-  const btn = document.getElementById("noBtn");
-  noIndex = Math.min(noIndex + 1, noTexts.length - 1);
-
-  const x = Math.floor(Math.random() * 90) - 45;
-  const y = Math.floor(Math.random() * 50) - 25;
-
-  btn.innerText = noTexts[noIndex];
-  btn.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${Math.max(0.82, 1 - noIndex * 0.04)})`;
-
-  setTimeout(() => {
-    noMoveLock = false;
-  }, 240);
-}
-
-function finalScreen() {
-  document.body.innerHTML = `
-    <div class="card">
-      <div class="final">
-        Correct answer.<br>
-        Toto Round 2 is officially approved 😌🛺
-      </div>
-      <div class="sub">
-        Same chaos. Better photos.<br>
-        And this time, we are not trusting random photographers.
-      </div>
-    </div>
+  document.getElementById("card").innerHTML=`
+    <div>${dots}</div>
+    <h1>${q.title}</h1>
+    <p>${q.text}</p>
+    <div class="media">${q.media}</div>
+    <button class="yes" onclick="yes()">${q.yes}</button>
+    <button class="no" id="noBtn" onmouseenter="moveNo()" onclick="moveNo()">${q.no}</button>
   `;
+}
 
-  for (let i = 0; i < 34; i++) {
-    setTimeout(createFloat, i * 65);
+function yes(){
+  current++;
+  noIndex=0;
+
+  if(current<questions.length){
+    render();
+  }else{
+    document.getElementById("card").innerHTML=`
+      <div class="final">
+        Correct answer.<br><br>
+        Toto Round 2 officially approved 😌🛺
+      </div>
+      <p>Same chaos. Better photos. No random photographers this time.</p>
+    `;
   }
 }
 
-function createFloat() {
-  const item = document.createElement("div");
-  item.className = "float";
-  item.innerText = ["🛺", "✨", "😂", "📸", "😌"][Math.floor(Math.random() * 5)];
-  item.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(item);
-  setTimeout(() => item.remove(), 2000);
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  noIndex=Math.min(noIndex+1,noTexts.length-1);
+  btn.innerText=noTexts[noIndex];
+
+  const x=Math.random()*100-50;
+  const y=Math.random()*60-30;
+  btn.style.transform=`translate(${x}px,${y}px)`;
 }
 </script>
 
